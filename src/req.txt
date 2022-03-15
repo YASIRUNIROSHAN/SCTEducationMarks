@@ -1,0 +1,5 @@
+npm install axios --save
+npm install react-scripts --save
+git clone --single-branch -b react-mini https://github.com/safak/youtube.git
+yarn add @material-ui/core @material-ui/icons
+ yarn add styled-components
