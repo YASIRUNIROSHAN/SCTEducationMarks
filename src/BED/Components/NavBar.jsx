@@ -3,7 +3,7 @@ import { AccountCircleOutlined, Home } from '@material-ui/icons';
 import { Badge } from "@material-ui/core";
 
 const Container = styled.div`
-  background-color: aliceblue;
+  /* background-color: aliceblue; */
   background: linear-gradient(0.25turn, #4ca1af,#c4e0e5);
   height: 60px;
   box-shadow: -2px 2px 8px #aaaaaa;
@@ -29,7 +29,7 @@ const Logo = styled.h2`
 `;
 
 const HomeIcon = styled.div`
-  color: gold;
+  color: #11705F;
   cursor: pointer;
 `;
 const Right = styled.div`
