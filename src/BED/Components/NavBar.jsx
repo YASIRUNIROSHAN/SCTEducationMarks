@@ -1,49 +1,74 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { AccountCircleOutlined, Home } from '@material-ui/icons';
+import { Badge } from "@material-ui/core";
 
 const Container = styled.div`
-    background-color: aliceblue;
-    height: 60px;
+  background-color: aliceblue;
+  background: linear-gradient(0.25turn, #4ca1af,#c4e0e5);
+  height: 60px;
+  box-shadow: -2px 2px 8px #aaaaaa;
 `;
 
 const Wrapper = styled.div`
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `;
 const Left = styled.div`
-display: flex;
-    flex: 1;
-    align-items: center;
+  display: flex;
+  flex: 1;
+  align-items: center;
 `;
 const Center = styled.div`
-    flex: 1;
-    align-items: center;
+  flex: 1;
+  align-items: center;
 `;
-const Logo = styled.h1`
+const Logo = styled.h2`
   font-weight: 300;
 `;
 
+const HomeIcon = styled.div`
+  color: gold;
+  cursor: pointer;
+`;
 const Right = styled.div`
-display: flex;
-        flex: 1;
-    align-items: center;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: flex-end;
+`;
+
+const MenuItems = styled.div`
+  margin-left: 25px;
+  cursor: pointer;
+  font-size: 14px;
 `;
 
 const NavBar = () => {
   return (
     <Container>
-        <Wrapper>
-          <Left>Left</Left>
-          <Center>
-          <Logo>
-              Department 
-          </Logo>
-          </Center>
-          <Right>Right</Right>
-        </Wrapper>
+      <Wrapper>
+        <Left>
+          <HomeIcon>
+            <Home  fontSize="large"/>
+            </HomeIcon>
+        </Left>
+        <Center>
+          <Logo>Department of Teacher Education</Logo>
+        </Center>
+        <Right>
+          <MenuItems>REGISTER</MenuItems>
+          <MenuItems>REGISTER</MenuItems>
+          <MenuItems>
+            <Badge badgeContent={1} color="secondary">
+              <AccountCircleOutlined />
+            </Badge>
+          </MenuItems>
+        </Right>
+      </Wrapper>
     </Container>
-  )
-}
+  );
+};
 
-export default NavBar
+export default NavBar;
