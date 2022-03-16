@@ -10,6 +10,11 @@ const StyledTable = styled.table`
 
 const StyledTr = styled.tr`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  &:hover {
+    color: #4ca1af;
+    font-weight: 800;
+    font-style: italic;
+  }
 `;
 
 const StyledTr1 = styled.tr`
