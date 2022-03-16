@@ -67,7 +67,7 @@ const Table = ({ data }) => {
                 {item.finalMarks < 60 ?
                  <Button bg="f48fb1">Un-Eligible</Button>
                 :
-                <Button bg="26a69a">Eligible</Button>
+                <Button bg="4ca1af">Eligible</Button>
                 }
                 </StyledTd>
             <StyledTd><DoubleArrow /></StyledTd>
