@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { DoubleArrow } from "@material-ui/icons";
+// import { Chip  } from "@material-ui/core";
 
 const StyledTable = styled.table`
   border: none;
@@ -26,6 +27,17 @@ const StyledTh = styled.th`
   text-align: left;
   padding: 15px;
 `;
+
+const Button = styled.button`
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #${props=>props.bg};
+    color: black;
+    cursor: pointer;
+    width: 50%;
+`;
+
 const Table = ({ data }) => {
   return (
     <StyledTable>
@@ -47,7 +59,11 @@ const Table = ({ data }) => {
             <StyledTd>{item.course}</StyledTd>
             <StyledTd>{item.finalMarks}</StyledTd>
             <StyledTd>
-                {item.eligibleStatus}
+                {item.finalMarks < 60 ?
+                 <Button bg="f48fb1">Un-Eligible</Button>
+                :
+                <Button bg="26a69a">Eligible</Button>
+                }
                 </StyledTd>
             <StyledTd><DoubleArrow /></StyledTd>
           </StyledTr>

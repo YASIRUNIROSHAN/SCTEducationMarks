@@ -7,7 +7,7 @@ import {useEffect, useState} from 'react';
 
 const Container = styled.div`
   margin-bottom: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 20px;
   padding-bottom: 30px;
   background-color: #c4e0e5;

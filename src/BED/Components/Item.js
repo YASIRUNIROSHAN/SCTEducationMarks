@@ -16,7 +16,7 @@ export const Item = [
         "totalsecondStagemarks": 40,
         "secondStagePercentage":20,
         "finalMarks": 80,
-        "eligibleStatus": "Uneligible"
+        "eligibleStatus": "eligible"
     },
     {
         "id": 2,
@@ -187,7 +187,7 @@ export const Item = [
       "totalsecondStagemarks": 40,
       "secondStagePercentage":20,
       "finalMarks": 80,
-      "eligibleStatus": "Uneligible",
+      "eligibleStatus": "eligible",
     }
     
 

@@ -29,7 +29,7 @@ const Logo = styled.h2`
 `;
 
 const HomeIcon = styled.div`
-  color: #11705F;
+  color: #005b4f;
   cursor: pointer;
 `;
 const Right = styled.div`
@@ -55,11 +55,11 @@ const NavBar = () => {
             </HomeIcon>
         </Left>
         <Center>
-          <Logo>Department of Teacher Education</Logo>
+          <Logo>BACHELOR OF EDUCATION</Logo>
         </Center>
         <Right>
           <MenuItems>REGISTER</MenuItems>
-          <MenuItems>REGISTER</MenuItems>
+          <MenuItems>ABOUT US</MenuItems>
           <MenuItems>
             <Badge badgeContent={1} color="secondary">
               <AccountCircleOutlined />
