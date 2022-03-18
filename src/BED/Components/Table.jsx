@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { DoubleArrow } from "@material-ui/icons";
+import { Link } from "react-router-dom";
 // import { Chip  } from "@material-ui/core";
 
 const StyledTable = styled.table`
@@ -34,13 +35,13 @@ const StyledTh = styled.th`
 `;
 
 const Button = styled.button`
-    border: none;
-    border-radius: 15px;
-    padding: 10px;
-    background-color: #${props=>props.bg};
-    color: black;
-    cursor: pointer;
-    width: 50%;
+  border: none;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #${(props) => props.bg};
+  color: black;
+  cursor: pointer;
+  width: 50%;
 `;
 
 const Table = ({ data }) => {
@@ -64,13 +65,17 @@ const Table = ({ data }) => {
             <StyledTd>{item.course}</StyledTd>
             <StyledTd>{item.finalMarks}</StyledTd>
             <StyledTd>
-                {item.finalMarks < 60 ?
-                 <Button bg="f48fb1">Un-Eligible</Button>
-                :
+              {item.finalMarks < 60 ? (
+                <Button bg="f48fb1">Un-Eligible</Button>
+              ) : (
                 <Button bg="4ca1af">Eligible</Button>
-                }
-                </StyledTd>
-            <StyledTd><DoubleArrow /></StyledTd>
+              )}
+            </StyledTd>
+            <StyledTd>
+              <Link to={`/ViewMark/${item._id}`}>
+                <DoubleArrow />
+              </Link>
+            </StyledTd>
           </StyledTr>
         ))}
       </tbody>
