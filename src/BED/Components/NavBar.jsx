@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { AccountCircleOutlined, Home } from '@material-ui/icons';
 import { Badge } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   /* background-color: aliceblue; */
@@ -47,12 +47,17 @@ const MenuItems = styled.div`
 `;
 
 const NavBar = () => {
+  const history = useHistory();
+
+const hadnleClick = () => {
+  history.push("/");
+}
   return (
     <Container>
       <Wrapper>
         <Left>
           <HomeIcon>
-            <Home  fontSize="large"/>
+            <Home  fontSize="large"  onClick={()=>  history.push(`/`)}/>
             </HomeIcon>
         </Left>
         <Center>

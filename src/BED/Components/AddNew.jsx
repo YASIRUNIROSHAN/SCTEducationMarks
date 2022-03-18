@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 const AddNew = () => {
+
+    useEffect(()=>{
+        console.log("first")
+    });
+
   return (
     <div>AddNew</div>
   )
