@@ -11,7 +11,7 @@ const Container = styled.div`
   margin-top: 15px;
   padding: 20px;
   padding-bottom: 30px;
-  background-color: #c4e0e5;
+  background-color: #effcff;
   box-shadow: 0px 1px 5px 0px;
 `;
 const Wrapper = styled.div`
@@ -43,7 +43,7 @@ const Button = styled.button`
   color: black;
   cursor: pointer;
   font-weight: 600;
-  width: 8%;
+  text-decoration: none;
   box-shadow: 0px 1px 5px 0px;
 `;
 
