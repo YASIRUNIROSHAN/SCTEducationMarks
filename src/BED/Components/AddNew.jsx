@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components';
+import FormInput from './FormInput';
 
 const Container = styled.div`
    display: flex;
@@ -28,8 +29,9 @@ const Topic = styled.h2`
    color: rgb(77, 1, 77);
     text-align: center;
     margin-bottom: 10px;
+    margin-top: 10px;
 `;
-const FormInput = styled.div`
+const FormItem = styled.div`
 `;
 
 const Button = styled.button`
@@ -58,7 +60,7 @@ const AddNew = () => {
       <Form>
         <Wrapper>
           <Topic> Student Marks</Topic>
-          <FormInput></FormInput>
+          <FormItem><FormInput /></FormItem>
           <Button>Submit</Button>
           </Wrapper>
       </Form>

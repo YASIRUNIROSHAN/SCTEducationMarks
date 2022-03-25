@@ -35,14 +35,6 @@ const StyledTh = styled.th`
 `;
 
 const Button = styled.button`
-  /* border: none;
-  border-radius: 15px;
-  padding: 10px;
-  background-color: #${(props) => props.bg};
-  color: black;
-  cursor: pointer;
-  width: 50%; */
-
   font-size: 1em;
   margin: 0.25em;
   padding: 0.25em 1em;
