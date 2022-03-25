@@ -1,9 +1,17 @@
 import styled from "styled-components";
 import { AccountCircleOutlined, Home } from '@material-ui/icons';
 import { Badge } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
-  background: linear-gradient(0.25turn, #4ca1af,#c4e0e5);
+  /* background: linear-gradient(0.25turn, #4ca1af,#c4e0e5); */
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
+  background-size: cover;
+  /* background-position: center; */
   height: 60px;
   box-shadow: -2px 2px 8px #aaaaaa;
 `;
@@ -54,16 +62,15 @@ const NavBar = () => {
     <Container>
       <Wrapper>
         <Left>
-          <HomeIcon>
-            <Home  fontSize="large"/>
-            </HomeIcon>
+        <Logo>BACHELOR OF EDUCATION</Logo>
         </Left>
-        <Center>
+        {/* <Center>
           <Logo>BACHELOR OF EDUCATION</Logo>
-        </Center>
+        </Center> */}
         <Right>
-          <MenuItems>REGISTER</MenuItems>
-          <MenuItems>ABOUT US</MenuItems>
+          <Link to={""}><MenuItems>HOME</MenuItems></Link>
+          <Link to={"/MarkList"}> <MenuItems>MARK LIST</MenuItems></Link>
+          <Link to={"/AboutUs"}><MenuItems>ABOUT US</MenuItems></Link>
           <MenuItems>
             <Badge badgeContent={1} color="secondary">
               <AccountCircleOutlined />

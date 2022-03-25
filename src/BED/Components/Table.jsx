@@ -19,7 +19,7 @@ const StyledTr = styled.tr`
 `;
 
 const StyledTr1 = styled.tr`
-  background-color: #4ca1af;
+  background-color: #8c91f17d;
 `;
 
 const StyledTd = styled.td`
@@ -35,13 +35,22 @@ const StyledTh = styled.th`
 `;
 
 const Button = styled.button`
-  border: none;
+  /* border: none;
   border-radius: 15px;
   padding: 10px;
   background-color: #${(props) => props.bg};
   color: black;
   cursor: pointer;
-  width: 50%;
+  width: 50%; */
+
+  font-size: 1em;
+  margin: 0.25em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  background-color: white;
+  /* Color the border and text with theme.main */
+  color: ${props => props.bg};
+  border: 2px solid ${props => props.bg};
 `;
 
 const Table = ({ data }) => {
@@ -66,9 +75,9 @@ const Table = ({ data }) => {
             <StyledTd>{item.finalMarks}</StyledTd>
             <StyledTd>
               {item.finalMarks < 60 ? (
-                <Button bg="f48fb1">Un-Eligible</Button>
+                <Button bg="palevioletred">Un-Eligible</Button>
               ) : (
-                <Button bg="4ca1af">Eligible</Button>
+                <Button bg="mediumseagreen">Eligible</Button>
               )}
             </StyledTd>
             <StyledTd>

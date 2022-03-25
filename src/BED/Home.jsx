@@ -8,10 +8,11 @@ import AddNew from "./Components/AddNew";
 const Home = () => {
   return (
     <>
-      <NavBar />
+     
       <Router>
+      <NavBar />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/MarkList">
             <DisplayContent />
           </Route>
           <Route path="/AddNew">

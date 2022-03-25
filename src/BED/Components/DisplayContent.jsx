@@ -11,7 +11,7 @@ const Container = styled.div`
   margin-top: 15px;
   padding: 20px;
   padding-bottom: 30px;
-  background-color: #effcff;
+  background-color: #c7c2f740;
   box-shadow: 0px 1px 5px 0px;
 `;
 const Wrapper = styled.div`
@@ -39,8 +39,8 @@ const Input = styled.input`
 const Button = styled.button`
   border: none;
   padding: 10px;
-  background-color: #4ca1af;
-  color: black;
+  background-color: rebeccapurple;
+  color: white;
   cursor: pointer;
   font-weight: 600;
   text-decoration: none;
