@@ -73,19 +73,19 @@ const AddNew = () => {
         placeholder: "Registration Number"
       },
       {
-        id:1,
+        id:2,
         name:"userId",
         type:"text",
         placeholder: "Registration Number"
       },
       {
-        id:1,
+        id:3,
         name:"userId",
         type:"text",
         placeholder: "Registration Number"
       },
       {
-        id:1,
+        id:4,
         name:"userId",
         type:"text",
         placeholder: "Registration Number"
@@ -93,6 +93,7 @@ const AddNew = () => {
     ]
     const onChange = (e) => {
       setValues({ ...values, [e.target.name]: e.target.value});
+      // console.log(userId)
     }
   return (
     <Container>
@@ -100,7 +101,7 @@ const AddNew = () => {
         <Wrapper>
           <Topic> Student Marks</Topic>
           <FormItem>
-            {InputSharp.map((input)=> (
+            {inputs.map((input)=> (
               <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
             ))}  
           </FormItem>
