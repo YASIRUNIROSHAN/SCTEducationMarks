@@ -22,29 +22,13 @@ const Input = styled.input`
    border: 1px solid gray;
 `;
 
-const FormInput = () => {
+const FormInput = (props) => {
+  const {label, onChange, id, ...inputProps } = props;
   return (
     <Container>
         <Wrapper>
-        <Label>Student Name</Label>
-        <Input />
-        <Label>Student Name</Label>
-        <Input />
-        <Label>Student Name</Label>
-        <Input />
-        <Label>Student Name</Label>
-        <Input />
-        </Wrapper>
-
-        <Wrapper>
-        <Label>Student Name</Label>
-        <Input />
-        <Label>Student Name</Label>
-        <Input />
-        <Label>Student Name</Label>
-        <Input />
-        <Label>Student Name</Label>
-        <Input />
+          <Label>{label}</Label>
+          <Input {...inputProps} onChange={onChange} />
         </Wrapper>
     </Container>
   )

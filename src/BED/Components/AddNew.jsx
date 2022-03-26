@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+import { InputSharp } from '@material-ui/icons';
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import FormInput from './FormInput';
 
@@ -51,16 +52,58 @@ const Button = styled.button`
 
 const AddNew = () => {
 
+  const [values, setValues] = useState({
+    userId: "",
+    username: "",
+    gender: "",
+    medium: "",
+    center: "",
+    course: "",
+  })
+
     useEffect(()=>{
         console.log("first")
     });
 
+    const inputs = [
+      {
+        id:1,
+        name:"userId",
+        type:"text",
+        placeholder: "Registration Number"
+      },
+      {
+        id:1,
+        name:"userId",
+        type:"text",
+        placeholder: "Registration Number"
+      },
+      {
+        id:1,
+        name:"userId",
+        type:"text",
+        placeholder: "Registration Number"
+      },
+      {
+        id:1,
+        name:"userId",
+        type:"text",
+        placeholder: "Registration Number"
+      },
+    ]
+    const onChange = (e) => {
+      setValues({ ...values, [e.target.name]: e.target.value});
+    }
   return (
     <Container>
       <Form>
         <Wrapper>
           <Topic> Student Marks</Topic>
-          <FormItem><FormInput /></FormItem>
+          <FormItem>
+            {InputSharp.map((input)=> (
+              <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
+            ))}  
+          </FormItem>
           <Button>Submit</Button>
           </Wrapper>
       </Form>
