@@ -35,62 +35,13 @@ const Topic = styled.h2`
 const FormItem = styled.div`
 `;
 
-const Button = styled.button`
-    width: 100%;
-    height: 50px;
-    padding: 10px;
-    border: none;
-    background-color: rebeccapurple;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 15px;
-    margin-bottom: 30px;
-`;
 
 const AddNew = () => {
-
-  const [values, setValues] = useState({
-    userId: "",
-    username: "",
-    gender: "",
-    medium: "",
-    center: "",
-    course: "",
-  })
 
     useEffect(()=>{
         console.log("add new")
     });
 
-    const inputs = [
-      {
-        id:1,
-        name:"userId",
-        type:"text",
-        placeholder: "Registration Number"
-      },
-      {
-        id:2,
-        name:"username",
-        type:"text",
-        placeholder: "Username"
-      },
-      {
-        id:3,
-        name:"gender",
-        type:"text",
-        placeholder: "Gender"
-      },
-      {
-        id:4,
-        name:"medium",
-        type:"text",
-        placeholder: "Medium"
-      },
-    ]
   return (
     <Container>
       <Form>
@@ -100,7 +51,7 @@ const AddNew = () => {
             {/* {inputs.map((input)=> (
               <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} label={input.placeholder}/>
             ))}   */}
-            <FormInput inputs={inputs}/>
+            <FormInput/>
           </FormItem>
           {/* <Button>Submit</Button> */}
           </Wrapper>
