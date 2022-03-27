@@ -24,11 +24,16 @@ const Input = styled.input`
 
 const FormInput = (props) => {
   const {label, onChange, id, ...inputProps } = props;
+  // console.log(...inputProps)
   return (
     <Container>
         <Wrapper>
-          <Label>{label}</Label>
-          <Input {...inputProps} onChange={onChange} />
+          <Label>Username</Label>
+          <Input onChange={(e)=>(console.log(e.target.value))}></Input>
+        </Wrapper>
+        <Wrapper>
+          <Label>User Id</Label>
+          <Input onChange={(e)=>(console.log(e.target.value))} placeholder="User Id"></Input>
         </Wrapper>
     </Container>
   )

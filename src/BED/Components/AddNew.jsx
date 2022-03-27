@@ -74,21 +74,21 @@ const AddNew = () => {
       },
       {
         id:2,
-        name:"userId",
+        name:"username",
         type:"text",
-        placeholder: "Registration Number"
+        placeholder: "Username"
       },
       {
         id:3,
-        name:"userId",
+        name:"gender",
         type:"text",
-        placeholder: "Registration Number"
+        placeholder: "Gender"
       },
       {
         id:4,
-        name:"userId",
+        name:"medium",
         type:"text",
-        placeholder: "Registration Number"
+        placeholder: "Medium"
       },
     ]
     const onChange = (e) => {
@@ -101,9 +101,10 @@ const AddNew = () => {
         <Wrapper>
           <Topic> Student Marks</Topic>
           <FormItem>
-            {inputs.map((input)=> (
-              <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange}/>
-            ))}  
+            {/* {inputs.map((input)=> (
+              <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} label={input.placeholder}/>
+            ))}   */}
+            <FormInput />
           </FormItem>
           <Button>Submit</Button>
           </Wrapper>
