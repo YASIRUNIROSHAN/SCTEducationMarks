@@ -62,7 +62,7 @@ const AddNew = () => {
   })
 
     useEffect(()=>{
-        console.log("first")
+        console.log("add new")
     });
 
     const inputs = [
@@ -91,10 +91,6 @@ const AddNew = () => {
         placeholder: "Medium"
       },
     ]
-    const onChange = (e) => {
-      setValues({ ...values, [e.target.name]: e.target.value});
-      // console.log(userId)
-    }
   return (
     <Container>
       <Form>
@@ -104,9 +100,9 @@ const AddNew = () => {
             {/* {inputs.map((input)=> (
               <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} label={input.placeholder}/>
             ))}   */}
-            <FormInput />
+            <FormInput inputs={inputs}/>
           </FormItem>
-          <Button>Submit</Button>
+          {/* <Button>Submit</Button> */}
           </Wrapper>
       </Form>
     </Container>
