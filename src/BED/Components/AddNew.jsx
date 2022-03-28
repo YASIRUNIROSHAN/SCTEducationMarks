@@ -1,4 +1,3 @@
-import { InputSharp } from '@material-ui/icons';
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components';
 import FormInput from './FormInput';
@@ -61,6 +60,8 @@ const AddNew = () => {
     course: "",
   })
 
+  console.log(values["userId"])
+
     useEffect(()=>{
         console.log("first")
     });
@@ -70,7 +71,7 @@ const AddNew = () => {
         id:1,
         name:"userId",
         type:"text",
-        placeholder: "Registration Number"
+        placeholder: "Registration Number",
       },
       {
         id:2,
@@ -104,7 +105,7 @@ const AddNew = () => {
             {/* {inputs.map((input)=> (
               <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} label={input.placeholder}/>
             ))}   */}
-            <FormInput />
+            <FormInput inputs={inputs} value={values} onChange={onChange}/>
           </FormItem>
           <Button>Submit</Button>
           </Wrapper>
