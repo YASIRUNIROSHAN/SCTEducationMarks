@@ -59,17 +59,17 @@ const FormInput = () => {
   const [medium, setMedium] = useState("");
   const [center, setCenter] = useState("");
   const [course, setCourse] = useState("");
-  const [firstLession, setFirstLession] = useState(0);
-  const [secondLession, setSecondLession] = useState(0);
-  const [thirdLession, setThirdLession] = useState(0);
+  const [firstStage1, setFirstStage1] = useState(0);
+  const [firstStage2, setFirstStage2] = useState(0);
+  const [firstStage3, setFirstStage3] = useState(0);
   const [fSPersontage, setFSPersontage] = useState(0);
   const [fSTotalMarks, setFSTotalMarks] = useState(0);
-  const [sSFirstLession, setSSFirstLession] = useState(0);
-  const [sSSecondLession, setSSSecondLession] = useState(0);
+  const [secondStage1, setSecondStage1] = useState(0);
+  const [secondStage2, setSecondStage2] = useState(0);
   const [sSPersontage, setSSPersontage] = useState(0);
-  const [sSTotalMarks, setSSTotalMarks] = useState("");
-  const [finalMarks, setFinalMarks] = useState("");
-  const [status, setStatus] = useState("");
+  const [sSTotalMarks, setSSTotalMarks] = useState(0);
+  const [finalMarks, setFinalMarks] = useState(0);
+  const [eligibleStatus, setEligibleStatus] = useState(0);
 
   useEffect(() => {
     console.log("formInput");
@@ -77,125 +77,132 @@ const FormInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const Marks = { username, userId, gender, medium, center,
-       course, firstLession, secondLession,thirdLession, fSPersontage, fSTotalMarks, sSFirstLession,
-       sSSecondLession, sSPersontage, sSTotalMarks, finalMarks, status};
-    fetch('/marks/AddMarks', {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Marks)   
-  }).then(() => {
-     console.log("Added");
-      history.push("/MarkList")
-  }) 
+
+    // setFSTotalMarks(firstStage1+firstStage2+firstStage3);
+    // setFSPersontage(fSTotalMarks/100)
+    console.log(fSTotalMarks, fSPersontage)
+
+    const Marks = {
+      username, userId, gender, medium, center,
+      course, firstStage1, firstStage2, firstStage3, fSPersontage, fSTotalMarks, secondStage1,
+      secondStage2, sSPersontage, sSTotalMarks, finalMarks, eligibleStatus
+    };
+    // fetch('/marks/AddMarks', {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(Marks)
+    // }).then(() => {
+    //   console.log("Added");
+    //   history.push("/MarkList")
+    // })
   }
-  
+
   return (
     <Container>
       <Form onSubmit={handleSubmit}>
         <FormContainer>
-        <Wrapper>
-          <Label>Username</Label>
-          <Input
-            type={"text"}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <Label>Registration Number</Label>
-          <Input
-            type={"text"}
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-          />
-          <Label>Gender</Label>
-          <Input
-            type={"text"}
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          />
-          <Label>Medium</Label>
-          <Input
-            type={"text"}
-            value={medium}
-            onChange={(e) => setMedium(e.target.value)}
-          />
-          <Label>Center</Label>
-          <Input
-            type={"text"}
-            value={center}
-            onChange={(e) => setCenter(e.target.value)}
-          />
-          <Label>Course</Label>
-          <Input
-            type={"text"}
-            value={course}
-            onChange={(e) => setCourse(e.target.value)}
-          />
-        </Wrapper>
-        {/* Second grid */}
-        <Wrapper>
-        <FirstStage>
-          <Label>First Lession</Label>
-          <Input
-            type={"number"}
-            value={firstLession}
-            onChange={(e) => setFirstLession(e.target.value)}
-          />
-          <Label>Second Lession</Label>
-          <Input
-            type={"number"}
-            value={secondLession}
-            onChange={(e) => setSecondLession(e.target.value)}
-          />
-          <Label>Third Lession</Label>
-          <Input
-            type={"number"}
-            value={thirdLession}
-            onChange={(e) => setThirdLession(e.target.value)}
-          />
-          <Label>First Stage - Persentage</Label>
-          <Input
-            type={"number"}
-            value={fSPersontage}
-            onChange={(e) => setFSPersontage(e.target.value)}
-          />
-          <Label>First Stage - Total Marks</Label>
-          <Input
-            type={"number"}
-            value={fSTotalMarks}
-            onChange={(e) => setFSTotalMarks(e.target.value)}
-          />
-        </FirstStage>
-        <SecondStage>
-        <Label>First Lession</Label>
-          <Input
-            type={"number"}
-            value={sSFirstLession}
-            onChange={(e) => setSSFirstLession(e.target.value)}
-          />
-          <Label>Second Lession</Label>
-          <Input
-            type={"number"}
-            value={sSSecondLession}
-            onChange={(e) => setSSSecondLession(e.target.value)}
-          />
-          <Label>Second Stage - Persentage</Label>
-          <Input
-            type={"number"}
-            value={sSPersontage}
-            onChange={(e) => setSSPersontage(e.target.value)}
-          />
-          <Label>Second Stage - Total Marks</Label>
-          <Input
-            type={"number"}
-            value={sSTotalMarks}
-            onChange={(e) => setSSTotalMarks(e.target.value)}
-          />
-          </SecondStage>
-        </Wrapper>
+          <Wrapper>
+            <Label>Username</Label>
+            <Input
+              type={"text"}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <Label>Registration Number</Label>
+            <Input
+              type={"text"}
+              value={userId}
+              onChange={(e) => setUserId(e.target.value)}
+            />
+            <Label>Gender</Label>
+            <Input
+              type={"text"}
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+            />
+            <Label>Medium</Label>
+            <Input
+              type={"text"}
+              value={medium}
+              onChange={(e) => setMedium(e.target.value)}
+            />
+            <Label>Center</Label>
+            <Input
+              type={"text"}
+              value={center}
+              onChange={(e) => setCenter(e.target.value)}
+            />
+            <Label>Course</Label>
+            <Input
+              type={"text"}
+              value={course}
+              onChange={(e) => setCourse(e.target.value)}
+            />
+          </Wrapper>
+          {/* Second grid */}
+          <Wrapper>
+            <FirstStage>
+              <Label>First Lession</Label>
+              <Input
+                type={"number"}
+                value={firstStage1}
+                onChange={(e) => setFirstStage1(e.target.value)}
+              />
+              <Label>Second Lession</Label>
+              <Input
+                type={"number"}
+                value={firstStage2}
+                onChange={(e) => setFirstStage2(e.target.value)}
+              />
+              <Label>Third Lession</Label>
+              <Input
+                type={"number"}
+                value={firstStage3}
+                onChange={(e) => setFirstStage3(e.target.value)}
+              />
+                <Input
+                type={"number"}
+                value={fSTotalMarks}
+                onChange={(e) => setFSTotalMarks(firstStage1+firstStage2+firstStage3)}
+              />
+              <Label>First Stage - Persentage</Label>
+              <Input
+                type={"number"}
+                value={fSPersontage}
+                onChange={(e) => setFSPersontage(e.target.value)}
+              />
+              <Label>First Stage - Total Marks</Label>
+            </FirstStage>
+            <SecondStage>
+              <Label>First Lession</Label>
+              <Input
+                type={"number"}
+                value={secondStage1}
+                onChange={(e) => setSecondStage1(e.target.value)}
+              />
+              <Label>Second Lession</Label>
+              <Input
+                type={"number"}
+                value={secondStage2}
+                onChange={(e) => setSecondStage2(e.target.value)}
+              />
+              <Label>Second Stage - Persentage</Label>
+              <Input
+                type={"number"}
+                value={sSPersontage}
+                onChange={(e) => setSSPersontage(e.target.value)}
+              />
+              <Label>Second Stage - Total Marks</Label>
+              <Input
+                type={"number"}
+                value={sSTotalMarks}
+                onChange={(e) => setSSTotalMarks(e.target.value)}
+              />
+            </SecondStage>
+          </Wrapper>
 
 
-        
+
         </FormContainer>
         <Button>Submit</Button>
       </Form>
