@@ -182,14 +182,14 @@ const FormInput = () => {
           <Label>Second Stage - Persentage</Label>
           <Input
             type={"number"}
-            value={fSPersontage}
-            onChange={(e) => setFSPersontage(e.target.value)}
+            value={sSPersontage}
+            onChange={(e) => setSSPersontage(e.target.value)}
           />
           <Label>Second Stage - Total Marks</Label>
           <Input
             type={"number"}
-            value={fSTotalMarks}
-            onChange={(e) => setFSTotalMarks(e.target.value)}
+            value={sSTotalMarks}
+            onChange={(e) => setSSTotalMarks(e.target.value)}
           />
           </SecondStage>
         </Wrapper>
