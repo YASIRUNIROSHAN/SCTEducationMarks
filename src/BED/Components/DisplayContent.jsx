@@ -53,7 +53,7 @@ const DisplayContent = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       axios
-        .get(`http://localhost:8800/api/marks/studentMarks/all/?q=${query}`)
+        .get(`/marks/studentMarks/all/?q=${query}`)
         .then((resp) => {
           setData(resp.data);
         });
@@ -69,7 +69,8 @@ const DisplayContent = () => {
             type="text"
             className="search"
             placeholder="Search..."
-            onChange={(e) => setQuery(e.target.value.toLowerCase(), 10)}
+            onChange={(e) => setQuery(e.target.value.toLowerCase())}
+            // onChange={(e) => console.log(e.target.value)}
           />
           <Search style={{ color: "gray", fontSize: 20, paddingLeft: 20 }} />
         </SearchContainer>

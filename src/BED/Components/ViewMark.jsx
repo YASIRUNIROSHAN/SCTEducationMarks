@@ -131,7 +131,7 @@ const ViewMark = () => {
   const history= useHistory();
   useEffect(() => {
     axios
-      .get("http://localhost:8800/api/marks/" + id)
+      .get("/marks/" + id)
       .then((resp) => {
         setData(resp.data);
       })
@@ -143,7 +143,7 @@ const ViewMark = () => {
   const onDelete = (id, userId)=>{
     axios({
       method: 'DELETE',
-      url: 'http://localhost:8800/api/marks/' + id,
+      url: '/marks/' + id,
       data: {
         userId: userId,
       }
