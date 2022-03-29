@@ -12,7 +12,7 @@ const Container = styled.div`
     url("https://images.pexels.com/photos/114979/pexels-photo-114979.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
   background-size: cover;
   /* background-position: center; */
-  height: 60px;
+  height: 50px;
   box-shadow: -2px 2px 8px #aaaaaa;
 `;
 

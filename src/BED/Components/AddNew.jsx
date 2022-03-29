@@ -3,9 +3,10 @@ import styled from 'styled-components';
 import FormInput from './FormInput';
 
 const Container = styled.div`
-   display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 0px;
   height: 100vh;
   background: linear-gradient(
       rgba(255, 255, 255, 0.7),
