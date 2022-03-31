@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import man from "../../static/man.png";
-import girl from "../../static/girl.jpg";
-import { useHistory } from "react-router-dom";
+import girl from "../../static/girl.png";
+import { useHistory, Link } from "react-router-dom";
 
 const Navigation = styled.div`
   display: flex;
@@ -20,7 +19,7 @@ cursor: pointer;
 `;
 const Container = styled.div`
   margin: 10px;
-  background-color: #effcff;
+  background-color: #c7c2f740;
   border-radius: 20px 0px 40px 0px;
   box-shadow: 0px 2px 5px 0px;
   padding: 15px;
@@ -70,17 +69,17 @@ const Card = styled.div`
   width: 15vw;
   height: 35vh;
   margin: 20px;
-  background-color: #effcff;
+  background-color: #c7c2f740;
 `;
 
 const CardHeader = styled.div`
-  background-color: #7ac1cd;
+  background-color: #5358be86;
   /* background: linear-gradient(0.25turn, #7ac1cd,#a8e9f5); */
   border-radius: 30px 0px 0px 0px;
   padding: 8px;
   font-size: large;
   font-weight: 200;
-  color: purple;
+  color: white;
   display: flex;
   justify-content: center;
 `;
@@ -106,7 +105,7 @@ const Button = styled.button`
   padding: 10px;
   background-color: #${(props) => props.b};
   /* background-color: #4ca1af; */
-  color: black;
+  color: white;
   cursor: pointer;
   width: 8vw;
   font-weight: 600;
@@ -119,7 +118,9 @@ const Status = styled.div`
   border-radius: 2px;
   padding-top: 1px;
   padding-bottom: 1px;
-  padding: 5px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
   background-color: #${(props) => props.bg};
   color: black;
   /* width: 30%; */
@@ -168,7 +169,7 @@ const ViewMark = () => {
       <Wrapper>
         <Upper>
           <Image> 
-            {data.gender === "Female" ?(
+            {data.gender === "Female" || "FEMALE" ?(
               <img src={girl} width="100" height="100" alt="girl"/>
             ):(
               <img src={man} width="100" height="100" alt="man" />
@@ -195,8 +196,8 @@ const ViewMark = () => {
            <CardItem> First Lesson : {data.firstStage1}</CardItem>
            <CardItem> Second Lesson : {data.firstStage2}</CardItem>
            <CardItem> Third Lesson : {data.firstStage3}</CardItem>
-           <CardItem>  Persentage : {data.firstStagePercentage}</CardItem>
-           <CardItem> Total Marks : {data.totalFStagemarks}</CardItem>
+           <CardItem>  Persentage : {data.fSPersontage}</CardItem>
+           <CardItem> Total Marks : {data.fSTotalMarks}</CardItem>
             </CardContent>
           </Card>
           <Card>
@@ -204,8 +205,8 @@ const ViewMark = () => {
           <CardContent>
           <CardItem>  First Lesson : {data.secondStage1}</CardItem>
           <CardItem> Second Lesson : {data.secondStage2}</CardItem>
-          <CardItem>  Persentage : {data.secondStagePercentage}</CardItem>
-          <CardItem> Total Marks : {data.totalsecondStagemarks}</CardItem>
+          <CardItem>  Persentage : {data.sSPersontage}</CardItem>
+          <CardItem> Total Marks : {data.sSTotalMarks}</CardItem>
             </CardContent>
             </Card>
           <Card>
@@ -216,14 +217,14 @@ const ViewMark = () => {
             {data.finalMarks < 60 ? (
                 <Status bg="f48fb1">Un-Eligible</Status>
               ) : (
-                <Status bg="4ca1af">Eligible</Status>
+                <Status bg="b06bf5">Eligible</Status>
               )}
             </CardItem>
             </CardContent>
             </Card>
         </BotomPart>
         <ButtonSection>
-            <Button b="4ca1af">Edit</Button>
+        <Link to={`/EditMarks/${data._id}`}><Button b="663399">Edit</Button></Link>
             <Button b="df2626" onClick={() => onDelete(data._id, data.userId)}>Delete</Button>
         </ButtonSection>
       </Wrapper>

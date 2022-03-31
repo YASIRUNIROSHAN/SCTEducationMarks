@@ -95,28 +95,28 @@ const FormInput = () => {
       course, firstStage1, firstStage2, firstStage3, fSPersontage, fSTotalMarks, secondStage1,
       secondStage2, sSPersontage, sSTotalMarks, finalMarks, eligibleStatus
     };
-    // fetch('/marks/AddMarks', {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(Marks)
-    // }).then(() => {
-    //   console.log("Added");
-    //   history.push("/MarkList")
-    // })
+    fetch('/marks/AddMarks', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Marks)
+    }).then(() => {
+      console.log("Added");
+      history.push("/MarkList")
+    })
   };
 
-  const firstStage1Sub = (e) => {
-    setFirstStage1(parseInt(e.target.value))
-  }
+  // const firstStage1Sub = (e) => {
+  //   setFirstStage1(parseInt(e.target.value))
+  // }
 
-  const firstStage2Sub = (e) => {
-    setFirstStage2(parseInt(e.target.value))
-  }
+  // const firstStage2Sub = (e) => {
+  //   setFirstStage2(parseInt(e.target.value))
+  // }
 
-  const firstStage3Sub = (e) => {
-    setFirstStage3(parseInt(e.target.value))
-    //  setFSTotalMarks(firstStage1 + firstStage2 + firstStage3)
-  }
+  // const firstStage3Sub = (e) => {
+  //   setFirstStage3(parseInt(e.target.value))
+  //   //  setFSTotalMarks(firstStage1 + firstStage2 + firstStage3)
+  // }
 
   return (
 
@@ -126,7 +126,7 @@ const FormInput = () => {
         <HR />
         <Container2>
           <Wrapper>
-            <Label>Username</Label>
+            <Label>Name With Initials</Label>
             <Input
               type={"text"}
               value={username}
@@ -236,6 +236,12 @@ const FormInput = () => {
               type={"number"}
               value={secondStage2}
               onChange={(e) => setSecondStage2(e.target.value)}
+            />
+             <Label>Final Marks</Label>
+            <Input
+              type={"number"}
+              value={finalMarks}
+              onChange={(e) => setFinalMarks(e.target.value)}
             />
             
           </Wrapper>
