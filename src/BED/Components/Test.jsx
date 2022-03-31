@@ -52,8 +52,11 @@ const HR = styled.hr`
 
 const Container2 = styled.div`
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
 `;
+const Raw = styled.div`
+`;
+
 const Wrapper = styled.div`
   margin: 10px;
   display: flex;
@@ -150,6 +153,7 @@ const Test = () => {
           <FormItem>
             <Form onSubmit={handleSubmit}>
               <Container>
+              <Raw>
                 <Topic> Personal Details</Topic>
                 <HR />
                 <Container2>
@@ -170,7 +174,106 @@ const Test = () => {
                     />
 
                   </Wrapper>
+
+                  <Wrapper>
+                    <Label>Name With Initials</Label>
+                    <Input
+                      type={"text"}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    </Wrapper>
                 </Container2>
+                <Container2>
+                  <Wrapper>
+                    <Label>Name With Initials</Label>
+                    <Input
+                      type={"text"}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    </Wrapper>
+                    <Wrapper>
+                    <Label>Gender</Label>
+                    <Input
+                      type={"text"}
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
+                    />
+
+                  </Wrapper>
+
+                  <Wrapper>
+                    <Label>Name With Initials</Label>
+                    <Input
+                      type={"text"}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    </Wrapper>
+                </Container2>
+               </Raw>
+
+               <Raw>
+                <Topic> Personal Details</Topic>
+                <HR />
+                <Container2>
+                  <Wrapper>
+                    <Label>Name With Initials</Label>
+                    <Input
+                      type={"text"}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    </Wrapper>
+                    <Wrapper>
+                    <Label>Gender</Label>
+                    <Input
+                      type={"text"}
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
+                    />
+
+                  </Wrapper>
+
+                  <Wrapper>
+                    <Label>Name With Initials</Label>
+                    <Input
+                      type={"text"}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    </Wrapper>
+                </Container2>
+                <Container2>
+                  <Wrapper>
+                    <Label>Name With Initials</Label>
+                    <Input
+                      type={"text"}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    </Wrapper>
+                    <Wrapper>
+                    <Label>Gender</Label>
+                    <Input
+                      type={"text"}
+                      value={gender}
+                      onChange={(e) => setGender(e.target.value)}
+                    />
+
+                  </Wrapper>
+
+                  <Wrapper>
+                    <Label>Name With Initials</Label>
+                    <Input
+                      type={"text"}
+                      value={username}
+                      onChange={(e) => setUsername(e.target.value)}
+                    />
+                    </Wrapper>
+                </Container2>
+               </Raw>
               </Container>
               <Button>Updat Data</Button>
             </Form>
