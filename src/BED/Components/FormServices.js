@@ -1,20 +1,24 @@
 
 export const gender = () => ([
+    {id: '0', title:"-Select One-"},
     {id: '1', title:"MALE"},
     {id: '2', title:"FEMALE"}
   ])
   
   export const medium = () => ([
+    {id: '0', medium:"-Select One-"},
     {id: '1', medium:"SINHALA"},
     {id: '2', medium:"ENGLISH"},
     {id: '3', medium:"TAMIL"}
   ])
   
   export const course = () => ([
+    {id: '0', course:"-Select One-"},
     {id: '1', course:"BED"}
   ])
   
   export const reg = () => ([
+    {id: '0', reg:"-Select One-"},
     {id: '1', reg:"BE/17/S/1/"},
     {id: '2', reg:"BE/17/S/2/"},
     {id: '3', reg:"BE/17/S/3/"},
@@ -26,6 +30,7 @@ export const gender = () => ([
   ])
 
 export const centers = () => ([
+    {id: '0', centers:"-Select One-"},
     {id: '1', centers:"SRIPADA"},
     {id: '2', centers:"MULLAITIVU"},
     {id: '3', centers:"NUWARA ELIYA"},

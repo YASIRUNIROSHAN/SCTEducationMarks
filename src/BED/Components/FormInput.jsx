@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-import * as formServices from "./FormServices"
+import * as formServices from "./FormServices";
 
 const Form = styled.form`
   display: flex;
@@ -14,15 +14,14 @@ const Container = styled.div`
 `;
 
 const HR = styled.hr`
- border: 0.5px solid rebeccapurple;
+  border: 0.5px solid rebeccapurple;
 `;
 
 const Container2 = styled.div`
   display: flex;
 `;
 
-const Raw = styled.div`
-`;
+const Raw = styled.div``;
 const Wrapper = styled.div`
   margin: 10px;
   display: flex;
@@ -30,7 +29,6 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   /* background-color: aliceblue; */
 `;
-
 
 const Topic = styled.div`
   margin: 2px;
@@ -48,10 +46,11 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
-  /* padding: 10px;
+  width: 10vw;
+  padding: 10px;
   margin: 5px 0px;
   border-radius: 5px;
-  border: 1px solid gray; */
+  border: 1px solid gray;
 `;
 const Button = styled.button`
   width: 100%;
@@ -96,26 +95,40 @@ const FormInput = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFSTotalMarks(firstStage1 + firstStage2 + firstStage3)
-    console.log(firstStage1, firstStage2, firstStage3, fSTotalMarks)
+    setFSTotalMarks(firstStage1 + firstStage2 + firstStage3);
+    console.log(firstStage1, firstStage2, firstStage3, fSTotalMarks);
     // if ( fSTotalMarks == 0 ){
     //   setFSTotalMarks(parseInt(firstStage1)+parseInt(firstStage2)+parseInt(firstStage3))
     // }
     // console.log(fSTotalMarks, "out")
     // console.log(fSTotalMarks)
     const Marks = {
-      username, userId, gender, medium, center,
-      course, firstStage1, firstStage2, firstStage3, fSPersontage, fSTotalMarks, secondStage1,
-      secondStage2, sSPersontage, sSTotalMarks, finalMarks, eligibleStatus
+      username,
+      userId,
+      gender,
+      medium,
+      center,
+      course,
+      firstStage1,
+      firstStage2,
+      firstStage3,
+      fSPersontage,
+      fSTotalMarks,
+      secondStage1,
+      secondStage2,
+      sSPersontage,
+      sSTotalMarks,
+      finalMarks,
+      eligibleStatus,
     };
-    fetch('/marks/AddMarks', {
+    fetch("/marks/AddMarks", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Marks)
+      body: JSON.stringify(Marks),
     }).then(() => {
       console.log("Added");
-      history.push("/MarkList")
-    })
+      history.push("/MarkList");
+    });
   };
 
   // const firstStage1Sub = (e) => {
@@ -129,175 +142,192 @@ const FormInput = () => {
   // const handleReg = (e) => {
   //   console.log("first")
   //   let data = e.target.value
-   
+
   //   const search = (data) => {
   //     return data.filter(x => x.userId.toLowerCase().includes())
-  // } 
+  // }
   // setUserId(search(formServices.centers()))
   // }
 
   return (
-
     <Form onSubmit={handleSubmit}>
-       <Container>
-                <Raw>
-                <Topic> Personal Details</Topic>
-                <HR />
-                <Container2>
-                  <Wrapper>
-                    <Label>Registration Number</Label>
-                    <Input
-                      type={"text"}
-                      value={userId}
-                      onChange={(e) => setUserId(e.target.value)}
-                    />
-                     </Wrapper>
-                 
-                  <Wrapper>
-                    <Label>Name With Initials</Label>
-                    <Input
-                      type={"text"}
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                    />
-                    </Wrapper>
-                     <Wrapper>
-                    <Label>Gender</Label>
-                    <Input
-                      type={"text"}
-                      value={gender}
-                      onChange={(e) => setGender(e.target.value)}
-                    />
-                  </Wrapper>
-                    </Container2>
-                    <Container2>
-                    <Wrapper>
-                    <Label>Medium</Label>
-                    <Input
-                      type={"text"}
-                      value={medium}
-                      onChange={(e) => setMedium(e.target.value)}
-                    />
-                  </Wrapper>
-                  <Wrapper>
-                    <Label> Center</Label>
-                    <Input
-                      type={"text"}
-                      value={center}
-                      onChange={(e) => setCenter(e.target.value)}
-                    />
-                     </Wrapper>
-                    <Wrapper>
-                    <Label>Course</Label>
-                    <Input
-                      type={"text"}
-                      value={course}
-                      onChange={(e) => setCourse(e.target.value)}
-                    />
-                  </Wrapper>
-                </Container2>
-                </Raw>
+      <Container>
+        <Raw>
+          <Topic> Personal Details</Topic>
+          <HR />
+          <Container2>
+            <Wrapper>
+              <Label>Registration Number</Label>
+              <Input
+                type={"text"}
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+              />
+            </Wrapper>
 
-                <Raw>
-                <Topic>First Stage</Topic>
-                <HR />
-                <Container2>
-                  <Wrapper>
-                    <Label>First Lession</Label>
-                    <Input
-                      type={"number"}
-                      value={firstStage1}
-                      onChange={(e) => setFirstStage1(e.target.value)}
-                    />
-                    </Wrapper>
-                    <Wrapper>
-                    <Label>Second Lession</Label>
-                    <Input
-                      type={"number"}
-                      value={firstStage2}
-                      onChange={(e) => setFirstStage2(e.target.value)}
-                    />
-                  </Wrapper>
-                  <Wrapper>
-                    <Label> Third Lession</Label>
-                    <Input
-                      type={"number"}
-                      value={firstStage3}
-                      onChange={(e) => setFirstStage3(e.target.value)}
-                    />
-                  </Wrapper>
-               
-                  </Container2>
-                    <Container2>
-                    <Wrapper>
-                    <Label>Total Marks</Label>
-                    <Input
-                      type={"number"}
-                      value={fSTotalMarks}
-                      onChange={(e) => setFSTotalMarks(e.target.value)}
-                    />
-                  </Wrapper>
-                  <Wrapper>
-                    <Label>Persentage</Label>
-                    <Input
-                      type={"number"}
-                      value={fSPersontage}
-                      onChange={(e) => setFSPersontage(e.target.value)}
-                    />
-                  </Wrapper>
-                 
-                </Container2>
-                </Raw>
-                <Topic>Second Stage</Topic>
-                <HR />
-                <Container2>
-                  <Wrapper>
-                    <Label>First Lession</Label>
-                    <Input
-                      type={"number"}
-                      value={secondStage1}
-                      onChange={(e) => setSecondStage1(e.target.value)}
-                    />
-                     </Wrapper>
-                     <Wrapper>
-                    <Label>Second Lession</Label>
-                    <Input
-                      type={"number"}
-                      value={secondStage2}
-                      onChange={(e) => setSecondStage2(e.target.value)}
-                    />
-                     </Wrapper>
-                    <Wrapper>
-                    <Label>Total Marks</Label>
-                    <Input
-                      type={"number"}
-                      value={sSTotalMarks}
-                      onChange={(e) => setSSTotalMarks(e.target.value)}
-                    />
-                  </Wrapper>
-                 
-                     </Container2>
-                    <Container2>
-                  <Wrapper>
-                    <Label> Persentage</Label>
-                    <Input
-                      type={"number"}
-                      value={sSPersontage}
-                      onChange={(e) => setSSPersontage(e.target.value)}
-                    />
-                  </Wrapper>
-                    <Wrapper>
-                      <Label>Final Marks</Label>
-                      <Input
-                        type={"number"}
-                        value={finalMarks}
-                        onChange={(e) => setFinalMarks(e.target.value)}
-                      />
+            <Wrapper>
+              <Label>Name With Initials</Label>
+              <Input
+                type={"text"}
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
+            </Wrapper>
+            <Wrapper>
+              <Label>Gender</Label>
+              <Select
+                type={"text"}
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              >
+                {formServices.gender().map((d) => (
+                  <option key={d.id} value={d.id}>
+                    {d.title}
+                  </option>
+                ))}
+              </Select>
+            </Wrapper>
+          </Container2>
+          <Container2>
+            <Wrapper>
+              <Label>Medium</Label>
+              <Select
+                type={"text"}
+                value={medium}
+                onChange={(e) => setMedium(e.target.value)}
+              >
+                {formServices.medium().map((d) => (
+                  <option key={d.id} value={d.id}>
+                    {d.medium}
+                  </option>
+                ))}
+              </Select>
+            </Wrapper>
+            <Wrapper>
+              <Label> Center</Label>
+              <Select
+                type={"text"}
+                value={center}
+                onChange={(e) => setCenter(e.target.value)}
+              >
+                 {formServices.centers().map((d) => (
+                  <option key={d.id} value={d.id}>
+                    {d.centers}
+                  </option>
+                ))}
+              </Select>
+            </Wrapper>
+            <Wrapper>
+              <Label>Course</Label>
+              <Select
+                type={"text"}
+                value={course}
+                onChange={(e) => setCourse(e.target.value)}
+              > {formServices.course().map((d) => (
+                <option key={d.id} value={d.id}>
+                  {d.course}
+                </option>
+              ))}
+            </Select>
+            </Wrapper>
+          </Container2>
+        </Raw>
 
-                  </Wrapper>
-                </Container2>
-
-              </Container>
+        <Raw>
+          <Topic>First Stage</Topic>
+          <HR />
+          <Container2>
+            <Wrapper>
+              <Label>First Lession</Label>
+              <Input
+                type={"number"}
+                value={firstStage1}
+                onChange={(e) => setFirstStage1(e.target.value)}
+              />
+            </Wrapper>
+            <Wrapper>
+              <Label>Second Lession</Label>
+              <Input
+                type={"number"}
+                value={firstStage2}
+                onChange={(e) => setFirstStage2(e.target.value)}
+              />
+            </Wrapper>
+            <Wrapper>
+              <Label> Third Lession</Label>
+              <Input
+                type={"number"}
+                value={firstStage3}
+                onChange={(e) => setFirstStage3(e.target.value)}
+              />
+            </Wrapper>
+          </Container2>
+          <Container2>
+            <Wrapper>
+              <Label>Total Marks</Label>
+              <Input
+                type={"number"}
+                value={fSTotalMarks}
+                onChange={(e) => setFSTotalMarks(e.target.value)}
+              />
+            </Wrapper>
+            <Wrapper>
+              <Label>Persentage</Label>
+              <Input
+                type={"number"}
+                value={fSPersontage}
+                onChange={(e) => setFSPersontage(e.target.value)}
+              />
+            </Wrapper>
+          </Container2>
+        </Raw>
+        <Topic>Second Stage</Topic>
+        <HR />
+        <Container2>
+          <Wrapper>
+            <Label>First Lession</Label>
+            <Input
+              type={"number"}
+              value={secondStage1}
+              onChange={(e) => setSecondStage1(e.target.value)}
+            />
+          </Wrapper>
+          <Wrapper>
+            <Label>Second Lession</Label>
+            <Input
+              type={"number"}
+              value={secondStage2}
+              onChange={(e) => setSecondStage2(e.target.value)}
+            />
+          </Wrapper>
+          <Wrapper>
+            <Label>Total Marks</Label>
+            <Input
+              type={"number"}
+              value={sSTotalMarks}
+              onChange={(e) => setSSTotalMarks(e.target.value)}
+            />
+          </Wrapper>
+        </Container2>
+        <Container2>
+          <Wrapper>
+            <Label> Persentage</Label>
+            <Input
+              type={"number"}
+              value={sSPersontage}
+              onChange={(e) => setSSPersontage(e.target.value)}
+            />
+          </Wrapper>
+          <Wrapper>
+            <Label>Final Marks</Label>
+            <Input
+              type={"number"}
+              value={finalMarks}
+              onChange={(e) => setFinalMarks(e.target.value)}
+            />
+          </Wrapper>
+        </Container2>
+      </Container>
       <Button>Submit</Button>
     </Form>
   );
