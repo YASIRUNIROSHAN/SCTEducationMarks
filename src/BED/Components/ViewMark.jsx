@@ -169,7 +169,7 @@ const ViewMark = () => {
       <Wrapper>
         <Upper>
           <Image> 
-            {data.gender === "Female" || "FEMALE" ?(
+            {data.gender === "Female" ?(
               <img src={girl} width="100" height="100" alt="girl"/>
             ):(
               <img src={man} width="100" height="100" alt="man" />

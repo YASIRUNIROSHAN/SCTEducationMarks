@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+// import * as FormServices from "./FormServices";
 
 const Form = styled.form`
   display: flex;
@@ -45,6 +46,13 @@ const Input = styled.input`
   border-radius: 5px;
   border: 1px solid gray;
 `;
+
+const Select = styled.select`
+  /* padding: 10px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  border: 1px solid gray; */
+`;
 const Button = styled.button`
   width: 100%;
   height: 50px;
@@ -79,6 +87,8 @@ const FormInput = () => {
   const [sSTotalMarks, setSSTotalMarks] = useState(0);
   const [finalMarks, setFinalMarks] = useState(0);
   const [eligibleStatus, setEligibleStatus] = useState(0);
+
+  // console.log(FormServices.getRegCollection())
 
   useEffect(() => {
     console.log("formInput");
