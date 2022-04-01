@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
-// import * as FormServices from "./FormServices";
+import * as formServices from "./FormServices"
 
 const Form = styled.form`
   display: flex;
@@ -126,9 +126,14 @@ const FormInput = () => {
   //   setFirstStage2(parseInt(e.target.value))
   // }
 
-  // const firstStage3Sub = (e) => {
-  //   setFirstStage3(parseInt(e.target.value))
-  //   //  setFSTotalMarks(firstStage1 + firstStage2 + firstStage3)
+  // const handleReg = (e) => {
+  //   console.log("first")
+  //   let data = e.target.value
+   
+  //   const search = (data) => {
+  //     return data.filter(x => x.userId.toLowerCase().includes())
+  // } 
+  // setUserId(search(formServices.centers()))
   // }
 
   return (

@@ -3,34 +3,6 @@ import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-import centers from "./FormServices"
-
-
-const data = [
-  {id: '1', title:"MALE"},
-  {id: '2', title:"FEMALE"}
-]
-
-const medium = [
-  {id: '1', medium:"SINHALA"},
-  {id: '2', medium:"ENGLISH"},
-  {id: '3', medium:"TAMIL"}
-]
-
-const course = [
-  {id: '1', course:"BED"}
-]
-
-const reg =[
-  {id: '1', reg:"BE/17/S/1/"},
-  {id: '2', reg:"BE/17/S/2/"},
-  {id: '3', reg:"BE/17/S/3/"},
-  {id: '4', reg:"BE/17/S/4/"},
-  {id: '5', reg:"BE/17/T/1/"},
-  {id: '6', reg:"BE/17/T/2/"},
-  {id: '7', reg:"BE/17/T/3/"},
-  {id: '8', reg:"BE/17/T/4/"},
-]
 
 const Main = styled.div`
   display: flex;
@@ -136,7 +108,6 @@ const EditMarks = () => {
 
   const { id } = useParams();
   const [data, setData] = useState([]);
-  // const [data1, setData1] = useState([fs.getMediumCollection()]);
   useEffect(() => {
     axios
       .get("/marks/" + id)
@@ -220,17 +191,18 @@ const EditMarks = () => {
                   <Container2>
                     <Wrapper>
                       <Label>Registration Number</Label>
-                      <Select
+                      <Input
                         type={"text"}
                         value={userId}
                         onChange={(e) => setUserId(e.target.value)}
-                      >
-                        {
-                          reg.map((d) => (
+                        
+                     />
+                        {/* {
+                          formServices.centers().map((d) => (
                             <option key={d.id} value={d.id}>
-                              {d.reg}
+                              {d.centers}
                             </option>))}
-                    </Select>
+                    </Select> */}
                     </Wrapper>
 
                     <Wrapper>
