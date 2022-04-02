@@ -8,6 +8,7 @@ import * as XLSX from "xlsx";
 const Test = () => {
     
     const [items, setItems] = useState([]);
+    const history = useHistory();
     
     const readExcel = (file) => {
       const promise = new Promise((resolve, reject) => {
@@ -49,7 +50,7 @@ const Test = () => {
         body: JSON.stringify(items)
       }).then(() => {
         console.log("Added");
-        // history.push("/MarkList")
+        history.push("/MarkList")
       })
     };
 
