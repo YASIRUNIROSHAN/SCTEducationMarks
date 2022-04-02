@@ -43,14 +43,14 @@ const Test = () => {
     const handleSubmit = (e) => {
       console.log(items)
       e.preventDefault();
-      // fetch('/marks/AddBulk', {
-      //   method: "POST",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(items)
-      // }).then(() => {
-      //   console.log("Added");
-      //   // history.push("/MarkList")
-      // })
+      fetch('/marks/AddBulk', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(items)
+      }).then(() => {
+        console.log("Added");
+        // history.push("/MarkList")
+      })
     };
 
     return (

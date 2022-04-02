@@ -46,7 +46,7 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
-  width: 10vw;
+  width: 15vw;
   padding: 10px;
   margin: 5px 0px;
   border-radius: 5px;
@@ -74,7 +74,7 @@ const FormInput = () => {
   const [gender, setGender] = useState("");
   const [medium, setMedium] = useState("");
   const [center, setCenter] = useState("");
-  const [course, setCourse] = useState("");
+  const [course, setCourse] = useState("BED");
   const [firstStage1, setFirstStage1] = useState(0);
   const [firstStage2, setFirstStage2] = useState(0);
   const [firstStage3, setFirstStage3] = useState(0);
@@ -217,7 +217,7 @@ const FormInput = () => {
                 ))}
               </Select>
             </Wrapper>
-            <Wrapper>
+            {/* <Wrapper>
               <Label>Course</Label>
               <Select
                 type={"text"}
@@ -229,7 +229,7 @@ const FormInput = () => {
                 </option>
               ))}
             </Select>
-            </Wrapper>
+            </Wrapper> */}
           </Container2>
         </Raw>
 
