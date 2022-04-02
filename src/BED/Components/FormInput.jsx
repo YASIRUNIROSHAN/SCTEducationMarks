@@ -181,7 +181,7 @@ const FormInput = () => {
                 onChange={(e) => setGender(e.target.value)}
               >
                 {formServices.gender().map((d) => (
-                  <option key={d.id} value={d.id}>
+                  <option key={d.id} value={d.title}>
                     {d.title}
                   </option>
                 ))}
@@ -197,7 +197,7 @@ const FormInput = () => {
                 onChange={(e) => setMedium(e.target.value)}
               >
                 {formServices.medium().map((d) => (
-                  <option key={d.id} value={d.id}>
+                  <option key={d.id} value={d.medium}>
                     {d.medium}
                   </option>
                 ))}
@@ -211,7 +211,7 @@ const FormInput = () => {
                 onChange={(e) => setCenter(e.target.value)}
               >
                  {formServices.centers().map((d) => (
-                  <option key={d.id} value={d.id}>
+                  <option key={d.id} value={d.centers}>
                     {d.centers}
                   </option>
                 ))}
