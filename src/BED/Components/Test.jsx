@@ -3,23 +3,27 @@ import styled from "styled-components";
 import { useHistory } from "react-router-dom";
 import * as XLSX from "xlsx";
 import ReactPaginate from "react-paginate";
+import "./App.css";
+
+const Pagination = styled.div`
+  margin: 10px;
+
+`;
+
 
 const Test = () => {
   const [items, setItems] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const history = useHistory();
 
-  const marksPerPage = 10;
+  const marksPerPage = 5;
   const pagesVisited = pageNumber * marksPerPage;
 
-  const displayMarks = items
-    .slice(pagesVisited, pagesVisited + marksPerPage)
-    .map(d =>{
-      <tr key={d.userId}>
-      <th>{d.userId}</th>
-      <td>{d.username}</td>
-      <td>{d.center}</td>
-    </tr>
-    });
+  const pageCount = Math.ceil(items.length / marksPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
 
   const readExcel = (file) => {
     const promise = new Promise((resolve, reject) => {
@@ -54,14 +58,14 @@ const Test = () => {
   const handleSubmit = (e) => {
     console.log(items);
     e.preventDefault();
-    // fetch('/marks/AddBulk', {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(items)
-    // }).then(() => {
-    //   console.log("Added");
-    //   // history.push("/MarkList")
-    // })
+    fetch("/marks/AddBulk", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(items),
+    }).then(() => {
+      console.log("Added");
+      history.push("/MarkList");
+    });
   };
 
   return (
@@ -73,6 +77,7 @@ const Test = () => {
           readExcel(file);
         }}
       />
+      <button onClick={handleSubmit}>Upload</button>
 
       <table>
         <thead>
@@ -83,13 +88,29 @@ const Test = () => {
           </tr>
         </thead>
         <tbody>
-          {/* {items.map((d) => (
-           
-          ))} */}
-          {displayMarks}
+          {items.slice(pagesVisited, pagesVisited + marksPerPage).map((d) => (
+            <tr key={d.userId}>
+              <th>{d.userId}</th>
+              <td>{d.username}</td>
+              <td>{d.center}</td>
+            </tr>
+          ))}
+          {/* {displayMarks} */}
         </tbody>
       </table>
-      <button onClick={handleSubmit}>Upload</button>
+      <Pagination>
+      <ReactPaginate
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageCount={pageCount}
+        onPageChange={changePage}
+        containerClassName={"paginationBttns"}
+        previousLinkClassName={"previousBttn"}
+        nextLinkClassName={"nextBttn"}
+        disabledClassName={"paginationDisabled"}
+        activeClassName={"paginationActive"}
+      />
+      </Pagination>
     </div>
   );
 };

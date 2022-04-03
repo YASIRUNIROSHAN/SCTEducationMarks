@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { DoubleArrow } from "@material-ui/icons";
 import { Link } from "react-router-dom";
-// import { Chip  } from "@material-ui/core";
+import ReactPaginate from "react-paginate";
+import "./App.css";
+import { useHistory } from "react-router-dom";
+import { useState } from "react";
+
+const Pagination = styled.div`
+  margin: 10px;
+`;
 
 const StyledTable = styled.table`
   border: none;
@@ -46,7 +53,21 @@ const Button = styled.button`
 `;
 
 const Table = ({ data }) => {
+
+  const [pageNumber, setPageNumber] = useState(0);
+  const history = useHistory();
+
+  const marksPerPage = 5;
+  const pagesVisited = pageNumber * marksPerPage;
+
+  const pageCount = Math.ceil(data.length / marksPerPage);
+
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+  };
+
   return (
+    <>
     <StyledTable>
       <tbody>
         <StyledTr1>
@@ -58,7 +79,7 @@ const Table = ({ data }) => {
           <StyledTh>Status</StyledTh>
           <StyledTh>View</StyledTh>
         </StyledTr1>
-        {data.map((item) => (
+        {data.slice(pagesVisited, pagesVisited + marksPerPage).map((item) => (
           <StyledTr key={item._id}>
             <StyledTd>{item.userId}</StyledTd>
             <StyledTd>{item.username}</StyledTd>
@@ -81,6 +102,20 @@ const Table = ({ data }) => {
         ))}
       </tbody>
     </StyledTable>
+     <Pagination>
+     <ReactPaginate
+       previousLabel={"Previous"}
+       nextLabel={"Next"}
+       pageCount={pageCount}
+       onPageChange={changePage}
+       containerClassName={"paginationBttns"}
+       previousLinkClassName={"previousBttn"}
+       nextLinkClassName={"nextBttn"}
+       disabledClassName={"paginationDisabled"}
+       activeClassName={"paginationActive"}
+     />
+     </Pagination>
+     </>
   );
 };
 
