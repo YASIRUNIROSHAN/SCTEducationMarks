@@ -6,10 +6,6 @@ import "./App.css";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
 
-const Pagination = styled.div`
-  margin: 10px;
-`;
-
 const StyledTable = styled.table`
   border: none;
   border-collapse: collapse;
@@ -50,6 +46,10 @@ const Button = styled.button`
   /* Color the border and text with theme.main */
   color: ${props => props.bg};
   border: 2px solid ${props => props.bg};
+`;
+
+const PaginationField = styled.div`
+display: flex;
 `;
 
 const Table = ({ data }) => {
@@ -102,7 +102,7 @@ const Table = ({ data }) => {
         ))}
       </tbody>
     </StyledTable>
-     <Pagination>
+    <PaginationField>
      <ReactPaginate
        previousLabel={"Previous"}
        nextLabel={"Next"}
@@ -114,7 +114,7 @@ const Table = ({ data }) => {
        disabledClassName={"paginationDisabled"}
        activeClassName={"paginationActive"}
      />
-     </Pagination>
+     </PaginationField>
      </>
   );
 };

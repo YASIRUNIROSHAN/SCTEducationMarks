@@ -15,7 +15,7 @@ const Container = styled.div`
   box-shadow: 0px 1px 5px 0px;
 `;
 const Wrapper = styled.div`
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   margin-bottom: 20px;
 `;

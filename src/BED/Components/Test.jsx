@@ -5,10 +5,7 @@ import * as XLSX from "xlsx";
 import ReactPaginate from "react-paginate";
 import "./App.css";
 
-const Pagination = styled.div`
-  margin: 10px;
 
-`;
 
 
 const Test = () => {
@@ -98,7 +95,6 @@ const Test = () => {
           {/* {displayMarks} */}
         </tbody>
       </table>
-      <Pagination>
       <ReactPaginate
         previousLabel={"Previous"}
         nextLabel={"Next"}
@@ -110,7 +106,6 @@ const Test = () => {
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
       />
-      </Pagination>
     </div>
   );
 };

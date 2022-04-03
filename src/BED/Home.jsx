@@ -6,6 +6,7 @@ import ViewMark from "./Components/ViewMark";
 import AddNew from "./Components/AddNew";
 import EditMarks from "./Components/EditMarks";
 import Test from "./Components/Test";
+import Login from "./Components/Login";
 
 const Home = () => {
   return (
@@ -25,6 +26,9 @@ const Home = () => {
           </Route>
           <Route path="/EditMarks/:id">
             <EditMarks />
+          </Route>
+          <Route path="/login">
+            <Login />
           </Route>
 
           <Route path="/Test">
