@@ -83,6 +83,7 @@ const Input = styled.input`
 `;
 
 const Select = styled.select`
+  
   padding: 10px;
   margin: 5px 0px;
   border-radius: 5px;
