@@ -223,10 +223,12 @@ const ViewMark = () => {
             </CardContent>
             </Card>
         </BotomPart>
+        {/* { user.isAdmin === "admin" &&  */}
         <ButtonSection>
         <Link to={`/EditMarks/${data._id}`}><Button b="663399">Edit</Button></Link>
             <Button b="df2626" onClick={() => onDelete(data._id, data.userId)}>Delete</Button>
         </ButtonSection>
+        {/* } */}
       </Wrapper>
     </Container>
     </>

@@ -13,7 +13,7 @@ const Test = () => {
   const [pageNumber, setPageNumber] = useState(0);
   const history = useHistory();
 
-  const marksPerPage = 5;
+  const marksPerPage = 8;
   const pagesVisited = pageNumber * marksPerPage;
 
   const pageCount = Math.ceil(items.length / marksPerPage);
@@ -89,6 +89,7 @@ const Test = () => {
             <tr key={d.userId}>
               <th>{d.userId}</th>
               <td>{d.username}</td>
+              <td>{d.nic}</td>
               <td>{d.center}</td>
             </tr>
           ))}

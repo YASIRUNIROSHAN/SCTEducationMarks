@@ -97,7 +97,6 @@ const Home = () => {
           <Route path="/login">
             <Login />
           </Route>
-
           <Route path="/Test">
             <Test />
           </Route>
@@ -107,7 +106,7 @@ const Home = () => {
       <div className="container">
       <div className="login">
         <form onSubmit={handleSubmit}>
-          <span className="formTitle">Lama Login</span>
+          <span className="formTitle">Login</span>
           <input
             type="text"
             placeholder="username"

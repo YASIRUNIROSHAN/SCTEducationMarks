@@ -57,7 +57,7 @@ const Table = ({ data }) => {
   const [pageNumber, setPageNumber] = useState(0);
   const history = useHistory();
 
-  const marksPerPage = 5;
+  const marksPerPage = 8;
   const pagesVisited = pageNumber * marksPerPage;
 
   const pageCount = Math.ceil(data.length / marksPerPage);
@@ -73,8 +73,9 @@ const Table = ({ data }) => {
         <StyledTr1>
           <StyledTh>Reg Number</StyledTh>
           <StyledTh>Name</StyledTh>
+          <StyledTh>SLIN/NIC</StyledTh>
           <StyledTh>Center</StyledTh>
-          <StyledTh>Course</StyledTh>
+          <StyledTh>Category</StyledTh>
           <StyledTh>Final Marks</StyledTh>
           <StyledTh>Status</StyledTh>
           <StyledTh>View</StyledTh>
@@ -83,6 +84,7 @@ const Table = ({ data }) => {
           <StyledTr key={item._id}>
             <StyledTd>{item.userId}</StyledTd>
             <StyledTd>{item.username}</StyledTd>
+            <StyledTd>{item.nic}</StyledTd>
             <StyledTd>{item.center}</StyledTd>
             <StyledTd>{item.course}</StyledTd>
             <StyledTd>{item.finalMarks}</StyledTd>
