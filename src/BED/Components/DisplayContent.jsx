@@ -94,7 +94,7 @@ const DisplayContent = () => {
           <Search style={{ color: "gray", fontSize: 20, paddingLeft: 20 }} />
         </SearchContainer>
 
-        <Select
+        {/* <Select
                 type={"text"}
                 value={centers}
                 onChange={(e) => setQuery(e.target.value.toLowerCase())}
@@ -116,7 +116,7 @@ const DisplayContent = () => {
                     {d.course}
                   </option>
                 ))}
-              </Select>
+              </Select> */}
         <Link to="/AddNew">
           <Button>ADD NEW</Button>
         </Link>
