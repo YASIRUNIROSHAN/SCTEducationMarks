@@ -14,7 +14,14 @@ export const gender = () => ([
   
   export const course = () => ([
     {id: '0', course:"-Select One-"},
-    {id: '1', course:"BED"}
+    {id: '1', course:"PRIMARY"},
+    {id: '2', course:"SOCIAL SCIENCE"},
+    {id: '3', course:"SCIENCE"},
+    {id: '4', course:"MATHEMATICS"},
+    {id: '5', course:"COMMERCE"},
+    {id: '6', course:""},
+    {id: '7', course:""},
+    {id: '8', course:""},
   ])
   
   export const reg = () => ([
@@ -32,7 +39,7 @@ export const gender = () => ([
 export const centers = () => ([
     {id: '0', centers:"-Select One-"},
     {id: '1', centers:"SRIPADA"},
-    {id: '2', centers:"MULLAITIVU"},
+    {id: '2', centers:"MULLATIVU"},
     {id: '3', centers:"NUWARA ELIYA"},
     {id: '4', centers:"KOPAY TTC"},
     {id: '5', centers:"MANNAR"},

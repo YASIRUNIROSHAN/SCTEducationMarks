@@ -5,6 +5,7 @@ import { Search } from "@material-ui/icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import * as formServices from "./FormServices";
 
 const Container = styled.div`
   margin-bottom: 20px;
@@ -47,11 +48,22 @@ const Button = styled.button`
   box-shadow: 0px 1px 5px 0px;
 `;
 
+const Select = styled.select`
+  width: 15vw;
+  padding: 10px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  border: 1px solid gray;
+`;
+
 const DisplayContent = () => {
   const [query, setQuery] = useState("");
   const [data1, setData] = useState([]);
+  const [centers, setCenters] = useState("");
+
   useEffect(() => {
     const fetchUsers = async () => {
+      setCenters(query)
       axios
         .get(`/marks/studentMarks/all/?q=${query}`)
         .then((resp) => {
@@ -60,6 +72,13 @@ const DisplayContent = () => {
     };
     if (query.length === 0 || query.length > 2) fetchUsers();
   }, [query]);
+
+
+  const dataLoad = (e) => {
+    setCenters(e.target.value)
+    setQuery(e.target.value)
+    console.log(query)
+  }
 
   return (
     <Container>
@@ -74,6 +93,30 @@ const DisplayContent = () => {
           />
           <Search style={{ color: "gray", fontSize: 20, paddingLeft: 20 }} />
         </SearchContainer>
+
+        <Select
+                type={"text"}
+                value={centers}
+                onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              >
+                {formServices.centers().map((d) => (
+                  <option key={d.id} value={d.centers}>
+                    {d.centers}
+                  </option>
+                ))}
+              </Select>
+
+              <Select
+                type={"text"}
+                value={query}
+                onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              >
+                {formServices.course().map((d) => (
+                  <option key={d.id} value={d.course}>
+                    {d.course}
+                  </option>
+                ))}
+              </Select>
         <Link to="/AddNew">
           <Button>ADD NEW</Button>
         </Link>

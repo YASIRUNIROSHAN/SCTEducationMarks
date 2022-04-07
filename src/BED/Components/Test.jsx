@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import * as XLSX from "xlsx";
 import ReactPaginate from "react-paginate";
 import "./App.css";
+import { Users } from "./Item";
 
 
 
@@ -65,6 +66,17 @@ const Test = () => {
     });
   };
 
+
+  const [query1, setQuery1] = useState("");
+  const [data, setData] = useState([]);
+
+  const keys = ["first_name", "last_name", "email"];
+    const search = (data) => {
+      return data.filter((item) =>
+        keys.some((key) => item[key].toLowerCase().includes(query1))
+      );
+    };
+
   return (
     <div>
       <input
@@ -107,6 +119,31 @@ const Test = () => {
         disabledClassName={"paginationDisabled"}
         activeClassName={"paginationActive"}
       />
+      <hr></hr>
+
+      <div className="app">
+        <input
+          className="search"
+          placeholder="Search..."
+          onChange={(e) => setQuery1(e.target.value.toLowerCase())}
+        />
+       <table>
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+        </tr>
+        {search(Users).map((item) => (
+          <tr key={item.id}>
+            <td>{item.first_name}</td>
+            <td>{item.last_name}</td>
+            <td>{item.email}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    </div>
     </div>
   );
 };
