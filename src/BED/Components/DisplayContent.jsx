@@ -5,17 +5,18 @@ import { Search } from "@material-ui/icons";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import * as formServices from "./FormServices";
 
 const Container = styled.div`
   margin-bottom: 20px;
   margin-top: 15px;
   padding: 20px;
   padding-bottom: 30px;
-  background-color: #c4e0e5;
+  background-color: #c7c2f740;
   box-shadow: 0px 1px 5px 0px;
 `;
 const Wrapper = styled.div`
-  display: flex;
+  display: flex; 
   justify-content: space-between;
   margin-bottom: 20px;
 `;
@@ -39,27 +40,45 @@ const Input = styled.input`
 const Button = styled.button`
   border: none;
   padding: 10px;
-  background-color: #4ca1af;
-  color: black;
+  background-color: rebeccapurple;
+  color: white;
   cursor: pointer;
   font-weight: 600;
-  width: 8%;
+  text-decoration: none;
   box-shadow: 0px 1px 5px 0px;
+`;
+
+const Select = styled.select`
+  width: 15vw;
+  padding: 10px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  border: 1px solid gray;
 `;
 
 const DisplayContent = () => {
   const [query, setQuery] = useState("");
   const [data1, setData] = useState([]);
+  const [centers, setCenters] = useState("");
+
   useEffect(() => {
     const fetchUsers = async () => {
+      setCenters(query)
       axios
-        .get(`http://localhost:8800/api/marks/studentMarks/all/?q=${query}`)
+        .get(`/marks/studentMarks/all/?q=${query}`)
         .then((resp) => {
           setData(resp.data);
         });
     };
     if (query.length === 0 || query.length > 2) fetchUsers();
   }, [query]);
+
+
+  const dataLoad = (e) => {
+    setCenters(e.target.value)
+    setQuery(e.target.value)
+    console.log(query)
+  }
 
   return (
     <Container>
@@ -69,10 +88,35 @@ const DisplayContent = () => {
             type="text"
             className="search"
             placeholder="Search..."
-            onChange={(e) => setQuery(e.target.value.toLowerCase(), 10)}
+            onChange={(e) => setQuery(e.target.value.toLowerCase())}
+            // onChange={(e) => console.log(e.target.value)}
           />
           <Search style={{ color: "gray", fontSize: 20, paddingLeft: 20 }} />
         </SearchContainer>
+
+        {/* <Select
+                type={"text"}
+                value={centers}
+                onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              >
+                {formServices.centers().map((d) => (
+                  <option key={d.id} value={d.centers}>
+                    {d.centers}
+                  </option>
+                ))}
+              </Select>
+
+              <Select
+                type={"text"}
+                value={query}
+                onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              >
+                {formServices.course().map((d) => (
+                  <option key={d.id} value={d.course}>
+                    {d.course}
+                  </option>
+                ))}
+              </Select> */}
         <Link to="/AddNew">
           <Button>ADD NEW</Button>
         </Link>
